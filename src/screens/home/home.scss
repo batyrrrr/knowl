@@ -1,0 +1,73 @@
+@use '../../scss/' as *;
+
+.home {
+    &__title {
+        text-align: center;
+        margin-top: 50px;
+        font-size: 39px;
+    }
+
+    &__content {
+        display: flex;
+        @include flex(center, center);
+        width: 100%;
+        gap: 50px;
+    }
+
+    &__list {
+        margin-top: 60px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        gap: 50px;
+        position: relative;
+
+    }
+
+    &__link {
+        list-style: none;
+        font-size: 24px;
+        font-weight: 700;
+        display: inline-block;
+    }
+
+    &__icon {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -20px;
+    }
+
+
+
+    &__categories {
+        position: absolute;
+        flex-direction: column;
+        top: 50%;
+        transform: translateY(140%);
+    }
+
+    &__categorie {
+        padding: 10px 20px;
+        display: flex;
+        gap: 30px;
+
+
+        .bg {
+            background-color: gray;
+
+        }
+    }
+
+
+    &__pod {
+        font-size: 16px;
+        padding: 5px 15px;
+        border-radius: 9px;
+        background-color: orange;
+        text-align: center;
+        align-items: center;
+        display: flex;
+    }
+}
