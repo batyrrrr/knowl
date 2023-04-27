@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './home.scss'
 
 import { IoMdArrowDropdown } from 'react-icons/io'
+import { Link } from 'react-router-dom'
 
 
 
@@ -14,24 +15,23 @@ const Home = () => {
 
     const [categories, setCategories] = useState([
         {
-            names: ['Танк', 'Вертолет', 'Дельтоплан'],
-            name: 'Транспорт'
+            podNames: [{ link: '/Tank', appli: 'Танк' }, { link: '/Vert', appli: 'Вертолет' }, { link: '/Delt', appli: 'Дельтоплан' }],
+            name: 'Транспорт',
         },
         {
-            names: ['Парашют', 'Прожектор', 'Швейная машинка'],
+            podNames: [{ link: '/Para', appli: 'Парашют' }, { link: '/Prozh', appli: 'Прожектор' }, { link: '/Glaz', appli: 'Глазок' }],
             name: 'Приборы'
-
         },
         {
-            names: ['Паровая пушка', 'Скорострельный арбалет',],
+            podNames: [{ link: '/Paro', appli: 'Паровая пушка' }, { link: '/Scoro', appli: 'Скорострельный арбалет' }],
             name: 'Оружие'
-
         }
     ])
 
+
+
     const indexOfArr = (index) => {
-        const idOfNames = categories[index].names
-        console.log(idOfNames)
+        const idOfNames = categories[index].podNames
         setPods(idOfNames)
     }
 
@@ -42,18 +42,20 @@ const Home = () => {
                 <div className="home__content">
                     <div className='home__list' >
                         {categories.map((categorie, index) =>
-
-                            <div onClick={() => indexOfArr(index)} className='home__link'>{categorie.name}
+                            <div onClick={() => indexOfArr(index)} className="home__generals">
+                                <div className='home__link'>{categorie.name}
+                                </div>
                                 <IoMdArrowDropdown className='home__icon' />
                             </div>
                         )}
                         <div className="home__categories">
                             <div className={`${pods.length !== 0 && 'bg'} home__categorie `}>
-                                {pods.length === 0 ? <h5>Выберите категорию</h5> :
+                                {pods.length === 0 ? <div>не выбрана категория</div> :
+
                                     pods.map((pod) => (
-                                        <div className='home__pod'>
-                                            {pod}
-                                        </div>
+                                        <Link to={pod.link} className='home__pod'>
+                                            {pod.appli}
+                                        </Link>
                                     ))
 
                                 }
