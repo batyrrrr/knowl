@@ -5,6 +5,10 @@
         text-align: center;
         margin-top: 50px;
         font-size: 39px;
+
+        @include tablet {
+            font-size: 30px;
+        }
     }
 
     &__content {
@@ -19,9 +23,13 @@
         display: flex;
         text-align: center;
         justify-content: center;
+        flex-wrap: wrap;
         gap: 50px;
         position: relative;
 
+        @include mobile {
+            gap: 25px;
+        }
     }
 
     &__generals {
@@ -43,9 +51,14 @@
 
     &__link {
         list-style: none;
-        font-size: 24px;
-        font-weight: 700;
+        font-size: 22px;
+        font-weight: 600;
         display: inline-block;
+
+        @include mobSmall {
+            font-size: 16px;
+        }
+
 
     }
 
