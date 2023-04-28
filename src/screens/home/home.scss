@@ -1,6 +1,8 @@
 @use '../../scss/' as *;
 
 .home {
+    margin-top: 200px;
+
     &__title {
         text-align: center;
         margin-top: 50px;
